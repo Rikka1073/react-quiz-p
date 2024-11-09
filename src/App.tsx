@@ -1,22 +1,9 @@
 import { useState } from "react";
 import "./App.css";
-
-const QUESTION = "Reactはどのようなものですか？";
-const ANSWERS = ["データベース", "フレームワーク", "ライブラリ", "言語"];
-const CORRECT_ANSWER = "ライブラリ";
+import { ANSWERS, QUESTION, UseselectAnswer } from "./hooks/UseselectAnswer";
 
 function App() {
-  const [userSelect, setUserSelect] = useState("");
-  const [result, setResult] = useState("");
-  const onclickUser = (answer: string) => {
-    setUserSelect(answer);
-    if (answer === CORRECT_ANSWER) {
-      setResult("正解です");
-    } else {
-      setResult("残念、不正解です");
-    }
-  };
-
+  const { onclickUser, userSelect, result } = UseselectAnswer();
   return (
     <>
       <div className="mx-auto w-5/6 bg-orange-100 h-screen">
